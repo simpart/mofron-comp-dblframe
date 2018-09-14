@@ -38,6 +38,9 @@ mf.comp.DbdrFrame = class extends Frame {
         try {
             super.initDomConts();
             this.addChild(this.innerFrame());
+            this.styleTgt(this.target());
+            this.eventTgt(this.target());
+            this.target(this.innerFrame().target());
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -49,12 +52,7 @@ mf.comp.DbdrFrame = class extends Frame {
             if (undefined === prm) {
                 /* getter */
                 if (undefined === this.m_innfrm) {
-                    let frm = new Frame({
-                        effect : [
-                            new Hrzpos('center','-' + frm.border().width()),
-                            new Vrtpos('center')
-                        ]
-                    });
+                    let frm = new Frame({});
                     frm.target().styleListener(
                         'border-width',
                         (p1,p2,p3) => {
@@ -72,6 +70,13 @@ mf.comp.DbdrFrame = class extends Frame {
                         },
                         this
                     );
+                    frm.execOption({
+                        effect : [
+                            new Hrzpos('center','-' + frm.border().width()),
+                            new Vrtpos('center')
+                        ]
+                    });
+                    
                     this.innerFrame(frm);
                 }
                 return this.m_innfrm;
@@ -81,6 +86,16 @@ mf.comp.DbdrFrame = class extends Frame {
                 throw new Error('invalid parameter');
             }
             this.m_innfrm = prm;
+        } catch (e) {
+            console.error(e.stack);
+            throw e;
+        }
+    }
+    
+    accentColor (prm) {
+        try {
+            let ret = super.accentColor(prm);
+            return (undefined === ret) ? this.innerFrame().accentColor(prm) : ret;
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -147,6 +162,15 @@ mf.comp.DbdrFrame = class extends Frame {
                 );
             }
             return ret;
+        } catch (e) {
+            console.error(e.stack);
+            throw e;
+        }
+    }
+    
+    radius (prm) {
+        try {
+            return (undefined === super.radius(prm)) ? this.innerFrame().radius(prm) : undefined;
         } catch (e) {
             console.error(e.stack);
             throw e;

@@ -1,6 +1,6 @@
 {
   "name": "mofron-comp-dblframe",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "double frame component for mofron",
   "main": "index.js",
   "scripts": {
