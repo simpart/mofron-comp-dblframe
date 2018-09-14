@@ -1,0 +1,26 @@
+{
+  "name": "mofron-comp-dblframe",
+  "version": "0.0.1",
+  "description": "double frame component for mofron",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simpart/mofron-comp-dblframe.git"
+  },
+  "dependencies": {
+    "mofron-effect-vrtpos" : "",
+    "mofron-effect-hrzpos" : ""
+  },
+  "keywords": [
+    "front-end"
+  ],
+  "author": "simparts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simpart/mofron-comp-dblframe/issues"
+  },
+  "homepage": "https://github.com/simpart/mofron-comp-dblframe#readme"
+}
